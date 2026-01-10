@@ -7,8 +7,15 @@ Static informational website for the West Side Lake of the Ozarks Chess Club.
 - Publish championship standings
 - Share club information
 
+## Data & Privacy
+- Displays **player names only**
+- All ratings and standings are sourced from **publicly available US Chess Federation data**
+- No user accounts, data collection, tracking, or monetization
+
 ## Technology
 - HTML / CSS
 - GitHub Pages hosting
+- Custom domain (CNAME)
 
-No user accounts, data collection, or monetization.
+## Notes
+This repository is intended solely for public-facing informational use.
