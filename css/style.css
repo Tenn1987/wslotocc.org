@@ -48,3 +48,116 @@ footer {
     font-size: 0.9rem;
     color: #555;
 }
+
+/* ===== Tables: Standings / Archive (added) ===== */
+
+/* Wrap tables in case they overflow on small screens */
+.table-wrap {
+    overflow-x: auto;
+}
+
+/* Shared table base */
+table.standings,
+table.archive {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+}
+
+.standings thead th,
+.archive thead th {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 2px solid #111;
+    background: #f3f4f6;
+    white-space: nowrap;
+}
+
+.standings tbody td,
+.archive tbody td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.standings tbody tr:hover,
+.archive tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* Optional subtle zebra striping */
+.standings tbody tr:nth-child(even),
+.archive tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+
+/* Highlight leader row (use class="leader" on the <tr>) */
+.standings tbody tr.leader {
+    background: #eef4ff;
+    font-weight: 600;
+}
+
+/* Column alignment helpers for standings tables */
+.standings td:nth-child(1),
+.standings td:nth-child(3) {
+    text-align: center;
+    width: 80px;
+    white-space: nowrap;
+}
+
+.standings td:nth-child(4) {
+    color: #555;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+/* Archive year link styling */
+.archive td:first-child a {
+    font-weight: 600;
+    text-decoration: none;
+    color: #0b3d91;
+}
+
+    .archive td:first-child a:hover {
+        text-decoration: underline;
+    }
+
+/* Optional: "Rookie" pill if wanted later (wrap text in <span class="tag">Rookie</span>) */
+.tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    background: #eef2ff;
+    color: #3730a3;
+    white-space: nowrap;
+}
+
+/* Mobile readability */
+@media (max-width: 600px) {
+    table.standings,
+    table.archive {
+        font-size: 0.87rem;
+    }
+
+    nav a {
+        margin: 0 0.5rem;
+    }
+}
+
+/* Print-friendly */
+@media print {
+    body {
+        background: white;
+    }
+
+    section {
+        box-shadow: none;
+    }
+
+    .standings tbody tr:hover,
+    .archive tbody tr:hover {
+        background: none;
+    }
+}
