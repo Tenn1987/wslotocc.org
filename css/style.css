@@ -86,11 +86,29 @@ table.archive {
     background: #f8fafc;
 }
 
-/* Optional subtle zebra striping */
+/* Zebra striping: blue / grey */
+.standings tbody tr:nth-child(odd),
+.archive tbody tr:nth-child(odd) {
+    background-color: #f8fafc; /* light grey */
+}
+
 .standings tbody tr:nth-child(even),
 .archive tbody tr:nth-child(even) {
-    background: #fafafa;
+    background-color: #eef4ff; /* very light blue */
 }
+
+/* Hover stays subtle and readable */
+.standings tbody tr:hover,
+.archive tbody tr:hover {
+    background-color: #e0ecff;
+}
+
+/* Leader row overrides zebra */
+.standings tbody tr.leader {
+    background-color: #dbeafe; /* slightly stronger blue */
+    font-weight: 600;
+}
+
 
 /* Highlight leader row (use class="leader" on the <tr>) */
 .standings tbody tr.leader {
