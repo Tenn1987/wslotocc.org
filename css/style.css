@@ -56,7 +56,7 @@ footer {
     overflow-x: auto;
 }
 
-/* Shared table base */
+/* Base table styling */
 table.standings,
 table.archive {
     width: 100%;
@@ -65,28 +65,27 @@ table.archive {
     font-size: 0.95rem;
 }
 
+/* Header row */
 .standings thead th,
 .archive thead th {
     text-align: left;
     padding: 10px 12px;
-    border-bottom: 2px solid #111;
-    background: #f3f4f6;
+    background-color: #f3f4f6;
+    border-bottom: 2px solid #1e293b;
     white-space: nowrap;
 }
 
+/* Body cells */
 .standings tbody td,
 .archive tbody td {
     padding: 8px 12px;
-    border-bottom: 1px solid #ddd;
-    vertical-align: top;
+    border-bottom: 1px solid #d1d5db;
+    vertical-align: middle;
 }
 
-.standings tbody tr:hover,
-.archive tbody tr:hover {
-    background: #f8fafc;
-}
-
-/* Zebra striping: blue / grey */
+/* =====================
+   Zebra striping
+   ===================== */
 .standings tbody tr:nth-child(odd),
 .archive tbody tr:nth-child(odd) {
     background-color: #f8fafc; /* light grey */
@@ -94,43 +93,61 @@ table.archive {
 
 .standings tbody tr:nth-child(even),
 .archive tbody tr:nth-child(even) {
-    background-color: #eef4ff; /* very light blue */
+    background-color: #eef4ff; /* light blue */
 }
 
-/* Hover stays subtle and readable */
+/* Hover */
 .standings tbody tr:hover,
 .archive tbody tr:hover {
     background-color: #e0ecff;
 }
 
-/* Leader row overrides zebra */
-.standings tbody tr.leader {
-    background-color: #dbeafe; /* slightly stronger blue */
+/* =====================
+   Podium shading
+   Apply class="gold|silver|bronze" to <tr>
+   ===================== */
+
+/*  Gold */
+.standings tbody tr.gold {
+    background-color: #fff4cc;
+    font-weight: 700;
+}
+
+/*  Silver */
+.standings tbody tr.silver {
+    background-color: #f1f5f9;
     font-weight: 600;
 }
 
-
-/* Highlight leader row (use class="leader" on the <tr>) */
-.standings tbody tr.leader {
-    background: #eef4ff;
+/*  Bronze */
+.standings tbody tr.bronze {
+    background-color: #fde8d7;
     font-weight: 600;
 }
 
-/* Column alignment helpers for standings tables */
+/* Leader override (current season leader) */
+.standings tbody tr.leader {
+    background-color: #dbeafe;
+    font-weight: 700;
+}
+
+    /* Leader always wins over zebra */
+    .standings tbody tr.leader:hover {
+        background-color: #c7ddff;
+    }
+
+/* =====================
+   Column alignment
+   ===================== */
 .standings td:nth-child(1),
-.standings td:nth-child(3) {
+.standings td:nth-child(3),
+.archive td:nth-child(3),
+.archive td:nth-child(5) {
     text-align: center;
-    width: 80px;
     white-space: nowrap;
 }
 
-.standings td:nth-child(4) {
-    color: #555;
-    font-size: 0.9rem;
-    white-space: nowrap;
-}
-
-/* Archive year link styling */
+/* Year links in archive */
 .archive td:first-child a {
     font-weight: 600;
     text-decoration: none;
@@ -141,37 +158,22 @@ table.archive {
         text-decoration: underline;
     }
 
-/* Optional: "Rookie" pill if wanted later (wrap text in <span class="tag">Rookie</span>) */
-.tag {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    background: #eef2ff;
-    color: #3730a3;
-    white-space: nowrap;
-}
-
-/* Mobile readability */
+/* =====================
+   Mobile
+   ===================== */
 @media (max-width: 600px) {
     table.standings,
     table.archive {
         font-size: 0.87rem;
     }
-
-    nav a {
-        margin: 0 0.5rem;
-    }
 }
 
-/* Print-friendly */
+/* =====================
+   Print
+   ===================== */
 @media print {
     body {
         background: white;
-    }
-
-    section {
-        box-shadow: none;
     }
 
     .standings tbody tr:hover,
@@ -179,3 +181,4 @@ table.archive {
         background: none;
     }
 }
+
